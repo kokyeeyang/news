@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// loading the default viewpage to show news
+Route::get('/', 'ApiController@displayNews');
+// This POST route will pass the selected news source id to the ApiController
+// When user changes from cnn to bbc, then this route will be used to pass the news source id
+Route::post('/sourceId', 'ApiController@displayNews');
