@@ -15,8 +15,9 @@ class Helper
     public function makeApiCalls($url_params){
     	try{
     		$client = new Client();
-    		$apiRequest = $client->request('GET', config('app.news_api_key'));
-    		return json_decode($apiRequest->getBody()->getContent(), true);
+    		$apiRequest = $client->request('GET', config('app.news_api_url') .$url_params.'&apiKey=' . config('app.news_api_key'));
+    		// var_dump($apiRequest->getBody());exit;	
+    		return json_decode($apiRequest->getBody(), true);
     	} catch (RequestException $e){
     		//For handling exception
     		echo Psr7\str($e->getRequest());
