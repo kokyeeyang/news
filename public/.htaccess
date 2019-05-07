@@ -1,7 +1,6 @@
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
-        Options +MultiViews +Indexes
-        DirectoryIndex index.html index.php index.blade.php welcome.html welcome.blade.php
+        Options -MultiViews -Indexes
     </IfModule>
 
     RewriteEngine On
@@ -18,5 +17,5 @@
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.html [L]
+    RewriteRule ^ index.php [L]
 </IfModule>
